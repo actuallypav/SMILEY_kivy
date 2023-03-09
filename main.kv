@@ -20,6 +20,7 @@
         TextInput:
             id: entry
             font_size: 32
+            font_name: "Amasis MT Std Black"
             multiline: False
             max_lines: 1
             on_text: if len(self.text) > 8: self.text = self.text[:8]
@@ -29,48 +30,60 @@
         spacing:10
         CustButton:
             text: "7"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "8"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "9"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
 
     BoxLayout:
         spacing:10
         CustButton:
             text: "4"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "5"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "6"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
 
     BoxLayout:
         spacing:10
         CustButton:
             text: "1"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "2"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "3"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
 
     BoxLayout:
         spacing:10
         CustButton:
             text: "<-"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text = entry.text[:-1]
         CustButton:
             text: "0"
+            font_name: "Amasis MT Std Black"
             on_press: entry.text += self.text
         CustButton:
             text: "Logon"
+            font_name: "Amasis MT Std Black"
             on_press: numpad.sessionID(entry.text)
 
 <ReactionGridLayout>:
@@ -80,6 +93,7 @@
 
     Label:
         text: "SHU BULLSHIT EAM MODULE ASSIGNMENT"
+        font_name: "Amasis MT Std Black"
         font_size: 32
     #row of reactions
     BoxLayout:
@@ -87,18 +101,23 @@
 
         CustButton:
             text: "1"
+            font_name: "Amasis MT Std Black"
             on_press: root.button_pressed(1)
         CustButton:
             text: "2"
+            font_name: "Amasis MT Std Black"
             on_press: root.button_pressed(2)
         CustButton:
             text: "3"
+            font_name: "Amasis MT Std Black"
             on_press: root.button_pressed(3)
         CustButton:
             text: "4"
+            font_name: "Amasis MT Std Black"
             on_press: root.button_pressed(4)
         CustButton:
             text: "5"
+            font_name: "Amasis MT Std Black"
             on_press: root.button_pressed(5)
             
     #logout button
@@ -106,6 +125,7 @@
         spacing:10
         CustButton:
             text: "Logout"
+            font_name: "Amasis MT Std Black"
             on_press: root.logout()
         
 
