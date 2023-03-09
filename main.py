@@ -14,7 +14,13 @@ Config.set('graphics', 'resizable', 1)
 sm = ScreenManager()
 
 class ReactionGridLayout(GridLayout):
-    pass
+    def button_pressed(self, num):
+        print("Button " + str(num) + " pressed")
+
+    def logout(self):
+        print("logged out")
+        self.parent.add_widget(NumpadGridLayout())
+        self.parent.remove_widget(self)
 
 #this is the logon 
 class NumpadGridLayout(GridLayout):

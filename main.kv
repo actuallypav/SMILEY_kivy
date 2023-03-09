@@ -73,3 +73,39 @@
             text: "Logon"
             on_press: numpad.sessionID(entry.text)
 
+<ReactionGridLayout>:
+    rows: 3
+    padding: 10
+    spacing: 10
+
+    Label:
+        text: "SHU BULLSHIT EAM MODULE ASSIGNMENT"
+        font_size: 32
+    #row of reactions
+    BoxLayout:
+        spacing:10
+
+        CustButton:
+            text: "1"
+            on_press: root.button_pressed(1)
+        CustButton:
+            text: "2"
+            on_press: root.button_pressed(2)
+        CustButton:
+            text: "3"
+            on_press: root.button_pressed(3)
+        CustButton:
+            text: "4"
+            on_press: root.button_pressed(4)
+        CustButton:
+            text: "5"
+            on_press: root.button_pressed(5)
+            
+    #logout button
+    BoxLayout:
+        spacing:10
+        CustButton:
+            text: "Logout"
+            on_press: root.logout()
+        
+
