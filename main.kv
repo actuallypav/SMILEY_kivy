@@ -1,12 +1,18 @@
 #:kivy 2.0.0
 # creating a custom button
 
-<CustButton@Button>
-    font_size: 64
+<CustButtonNumpad@Button>
+    font_size: 84
     background_color: 224/255, 224/255, 224/255, 1
 
+<CustButtonReaction@Button>
+    font_size: 84
+    background_normal: ''
+    background_color_down: [c * 0.1 for c in self.background_color]
+    height: dp(100)
 
-
+<CustButtonOther@Button>
+    font_size: 64
 # Define id so I can refer to the CalcGridLayout
 # class functions
 # Display points to the entry widget
@@ -21,7 +27,7 @@
     BoxLayout:
         TextInput:
             id: entry
-            font_size: 64
+            font_size: 100
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             multiline: False
@@ -32,17 +38,17 @@
   # when buttons are pressed update the entry
     BoxLayout:
         spacing:10
-        CustButton:
+        CustButtonNumpad:
             text: "7"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "8"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "9"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
@@ -50,17 +56,17 @@
 
     BoxLayout:
         spacing:10
-        CustButton:
+        CustButtonNumpad:
             text: "4"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "5"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "6"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
@@ -68,17 +74,17 @@
 
     BoxLayout:
         spacing:10
-        CustButton:
+        CustButtonNumpad:
             text: "1"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "2"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "3"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
@@ -86,17 +92,17 @@
 
     BoxLayout:
         spacing:10
-        CustButton:
+        CustButtonNumpad:
             text: "<-"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text = entry.text[:-1]
-        CustButton:
+        CustButtonNumpad:
             text: "0"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
             on_press: entry.text += self.text
-        CustButton:
+        CustButtonNumpad:
             text: "Logon"
             font_name: "Amasis_MT_Std_Black"
             color: (186/255, 0, 70/255, 1)
@@ -107,48 +113,91 @@
     padding: 10
     spacing: 10
 
-    Label:
-        text: "SHU BULLSHIT EAM MODULE ASSIGNMENT"
-        font_name: "Amasis_MT_Std_Black"
-        color: (186/255, 0, 70/255, 1)
-        font_size: 64
-    #row of reactions
+    Image:
+        source: 'images/Project_Logo.png'
+        size_hint: (0.5, 0.5)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
     BoxLayout:
         spacing:10
+        size_hint_y: 1.5
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-        CustButton:
-            text: "1"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
-            on_press: root.button_pressed(1)
-        CustButton:
-            text: "2"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
-            on_press: root.button_pressed(2)
-        CustButton:
-            text: "3"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
-            on_press: root.button_pressed(3)
-        CustButton:
-            text: "4"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
-            on_press: root.button_pressed(4)
-        CustButton:
-            text: "5"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
+        CustButtonReaction:
             on_press: root.button_pressed(5)
+            background_color: (1/255, 211/255, 0, 1)
+            Image:
+                source: 'images/Ecstatic_Face.png'
+                size_hint: None, None
+                size: self.texture_size
+                y: self.parent.y * 2.75
+                x: self.parent.x + self.parent.width / 3
+
+        CustButtonReaction:
+            on_press: root.button_pressed(4)
+            background_color: (127/255, 230/255, 17/255, 1)
+            Image:
+                source: 'images/Happy_Face.png'
+                size_hint: None, None
+                size: self.texture_size
+                y: self.parent.y * 2.75
+                x: self.parent.x + self.parent.width / 3
+
+        CustButtonReaction:
+            on_press: root.button_pressed(3)
+            background_color: (254/255, 249/255, 33/255, 1)
+            Image:
+                source: 'images/OK_Face.png'
+                size_hint: None, None
+                size: self.texture_size
+                y: self.parent.y * 2.75
+                x: self.parent.x + self.parent.width / 3
+
+        CustButtonReaction:
+            on_press: root.button_pressed(2)
+            background_color: (255/255, 139/255, 36/255, 1)
+            Image:
+                source: 'images/Not_Happy_Face.png'
+                size_hint: None, None
+                size: self.texture_size
+                y: self.parent.y * 2.75
+                x: self.parent.x + self.parent.width / 3
+
+        CustButtonReaction:
+            on_press: root.button_pressed(1)
+            background_color: (254/255, 29/255, 37/255, 1)
+            Image:
+                source: 'images/Angry_Face.png'
+                size_hint: None, None
+                size: self.texture_size
+                y: self.parent.y * 2.75
+                x: self.parent.x + self.parent.width / 3
             
     #logout button
     BoxLayout:
-        spacing:10
-        CustButton:
-            text: "Logout"
-            font_name: "Amasis_MT_Std_Black"
-            color: (186/255, 0, 70/255, 1)
-            on_press: root.logout()
+        orientation: 'horizontal'
+        size_hint_y:0.3
+        size_hint_x: 0.6
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+        #without this widget the login button won't be centered
+        #please leave as is
+        Widget:
+            size_hint_x: 0.3
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_x: 0.4
+            padding: (20, 0)
+
+            CustButtonOther:
+                text: "Logout"
+                font_name: "Amasis_MT_Std_Black"
+                color: (186/255, 0, 70/255, 1)
+                size_hint_x: None
+                width: self.texture_size[0] + 40
+                on_press: root.logout()
+
         
 

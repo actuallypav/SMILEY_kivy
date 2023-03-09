@@ -34,8 +34,9 @@ class NumpadGridLayout(GridLayout):
                 # replace the current grid layout with the ReactionGridLayout
                 self.parent.add_widget(ReactionGridLayout())
                 self.parent.remove_widget(self)
-            except:
+            except Exception as e:
                 self.display.text = 'ERROR'
+                print(e)
 
 #creating app class    
 class SmileyApp(App):
