@@ -21,6 +21,8 @@
             id: entry
             font_size: 32
             multiline: False
+            max_lines: 1
+            on_text: if len(self.text) > 8: self.text = self.text[:8]
 
   # when buttons are pressed update the entry
     BoxLayout:
@@ -69,5 +71,5 @@
             on_press: entry.text += self.text
         CustButton:
             text: "Logon"
-            on_press: numpad.logon(self.text)
+            on_press: numpad.sessionID(entry.text)
 
