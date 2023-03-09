@@ -9,14 +9,8 @@ from kivy.lang import Builder
 import pymysql.cursors
 import time
 import configparser
-
-#setting the app to resizable/fullscreen
-Config.set('graphics', 'resizable', 1)
-#Config.set('graphics', 'fullscreen', 'auto')
-#Config.set('graphics', 'borderless', 1)
-
-#new screenmanager
-sm = ScreenManager()
+import os
+import subprocess
 
 class ReactionGridLayout(GridLayout):
     def button_pressed(self, num):
@@ -131,6 +125,8 @@ Config.set('graphics', 'resizable', 1)
 
 #new screenmanager
 sm = ScreenManager()
+
+encryption_key = os.environ.get('MY_ENCRYPTION_KEY')
 
 config = configparser.ConfigParser()
 config.read('config.ini')
