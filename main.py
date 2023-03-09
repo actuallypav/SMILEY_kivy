@@ -45,6 +45,8 @@ class SmileyApp(App):
         try:
             print('loading the .kv file')
             Builder.load_file("main.kv")
+            print('loading the .ttf file')
+            Builder.load_file("Amasis_MT_")
         except Exception as e:
             print('failed to load .kv file. this is the error: ', e)
 
