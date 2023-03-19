@@ -10,31 +10,38 @@ import pymysql.cursors
 import time
 import configparser
 import os
-import subprocess
+
 
 class ReactionGridLayout(GridLayout):
+
+    def __init__(self, cursor, connection, roomcode, **kwargs):
+        super(ReactionGridLayout, self).__init__(**kwargs)
+        self.cursor = cursor
+        self.connection = connection
+        self.roomcode = roomcode
+
     def button_pressed(self, num):
         print("Button " + str(num) + " pressed")
-        if num == '1':
+        if num == 1:
             sql = "UPDATE db.feedback SET veryUnsatisfied = veryUnsatisfied + 1  WHERE sessionID = %s;"
-            cursor.execute(sql, roomcode)
-            connection.commit()
-        elif num == '2':
+            self.cursor.execute(sql, self.roomcode)
+            self.cursor.connection.commit()
+        elif num == 2:
             sql = "UPDATE db.feedback SET unsatisfied = unsatisfied + 1  WHERE sessionID = %s;"
-            cursor.execute(sql, roomcode)
-            connection.commit()
-        elif num == '3':
+            self.cursor.execute(sql, self.roomcode)
+            self.cursor.connection.commit()
+        elif num == 3:
             sql = "UPDATE db.feedback SET neutral = neutral + 1  WHERE sessionID = %s;"
-            cursor.execute(sql, roomcode)
-            connection.commit()
-        elif num == '4':
+            self.cursor.execute(sql, self.roomcode)
+            self.cursor.connection.commit()
+        elif num == 4:
             sql = "UPDATE db.feedback SET satisfied = satisfied  + 1  WHERE sessionID = %s;"
-            cursor.execute(sql, roomcode)
-            connection.commit()
-        elif num == '5':
+            self.cursor.execute(sql, self.roomcode)
+            self.cursor.connection.commit()
+        elif num == 5:
             sql = "UPDATE db.feedback SET verySatisfied = verySatisfied + 1  WHERE sessionID = %s;"
-            cursor.execute(sql, roomcode)
-            connection.commit()
+            self.cursor.execute(sql, self.roomcode)
+            self.cursor.connection.commit()
 
     def logout(self):
         print("logged out")
@@ -82,7 +89,7 @@ class NumpadGridLayout(GridLayout):
 
                     # replace the current grid layout with the ReactionGridLayout
                     #(change windows)
-                    self.parent.add_widget(ReactionGridLayout())
+                    self.parent.add_widget(ReactionGridLayout(cursor, connection, roomcode))
                     self.parent.remove_widget(self)
                 else:
                     #make an error title popup
@@ -102,7 +109,7 @@ class SmileyApp(App):
             print('loading the .kv file')
             Builder.load_file("main.kv")
             print('loading the .ttf file')
-            Builder.load_file("Amasis_MT_")
+            Builder.load_file("Amasis_MT_Std_Black.ttf")
         except Exception as e:
             print('failed to load .kv file. this is the error: ', e)
 
@@ -117,6 +124,9 @@ class SmileyApp(App):
 
         return sm
 
+#set windows specifically for DEBUG purposes
+Config.set('graphics', 'width', '1200')
+Config.set('graphics', 'height', '800')
 
 #setting the app to resizable/fullscreen
 Config.set('graphics', 'resizable', 1)
