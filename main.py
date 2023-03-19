@@ -14,12 +14,14 @@ import os
 
 class ReactionGridLayout(GridLayout):
 
+    #pass all of the variables from the other class to be used here
     def __init__(self, cursor, connection, roomcode, **kwargs):
         super(ReactionGridLayout, self).__init__(**kwargs)
         self.cursor = cursor
         self.connection = connection
         self.roomcode = roomcode
 
+    #what happens on each button press
     def button_pressed(self, num):
         print("Button " + str(num) + " pressed")
         if num == 1:
@@ -89,6 +91,7 @@ class NumpadGridLayout(GridLayout):
 
                     # replace the current grid layout with the ReactionGridLayout
                     #(change windows)
+                    #also pass all the variables to the other class
                     self.parent.add_widget(ReactionGridLayout(cursor, connection, roomcode))
                     self.parent.remove_widget(self)
                 else:
