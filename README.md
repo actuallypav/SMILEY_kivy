@@ -44,7 +44,10 @@ A simple system for collecting real-time feedback from students. Inspired by IKE
 - `images/` → Contains emoji face images for reactions.
 
 ## 📷 UI Preview
-<img src="SMILEY_pic.png" alt="*Source: Sectigo*">
+<p align="center">
+  <img src="SMILEY_pic.png" alt="*Source: Sectigo*">
+</p>
+
 
 ## 🏗️ Future Improvements
 - Add analytics to visualize feedback trends.
