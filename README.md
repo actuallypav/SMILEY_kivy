@@ -1,4 +1,4 @@
-# Smiley Feedback System 
+# Overview
 
 A simple system for collecting real-time feedback from students. Inspired by IKEA's satisfaction buttons, this Kivy-based app provides a five-button interface for users to rate their experience. Built in just over a day for a final-year university project, this system was built with the thought of being deployed within university premises to gather feedback efficiently.
 
