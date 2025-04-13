@@ -43,12 +43,6 @@ A simple system for collecting real-time feedback from students. Inspired by IKE
 - `config.ini` → Database configuration.
 - `images/` → Contains emoji face images for reactions.
 
-## UI Preview
-<p align="center">
-  <img src="SMILEY_pic.png" alt="*Source: Sectigo*">
-</p>
-
-
 ## Future Improvements
 - Add analytics to visualize feedback trends.
 - Implement touch gestures for smoother interaction.
