@@ -22,7 +22,7 @@ A simple system for collecting real-time feedback from students. Inspired by IKE
 4. The response is instantly recorded in the database.
 5. Users can log out, and the system resets for the next user.
 
-![Smiley Image](https://raw.githubusercontent.com/actuallypav/SMILEY_kivy/refs/heads/main/SMILEY_pic.png)
+<img src="https://raw.githubusercontent.com/actuallypav/SMILEY_kivy/refs/heads/main/SMILEY_pic.png" alt="Smiley Picture" width="100"/>
 
 ### Installation
 1. Clone this repo:
